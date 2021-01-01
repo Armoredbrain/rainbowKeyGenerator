@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-const chalk = require("chalk");
-const readline = require("readline");
-const boxen = require("boxen");
+const chalk = require('chalk');
+const readline = require('readline');
+const boxen = require('boxen');
 const loading = require('loading-cli');
 const Table = require('cli-table');
 
@@ -17,8 +17,7 @@ const alphabet = [
 ];
 
 // Title
-const title = chalk.green.bold("RAINBOW KEY GENERATOR");
-
+const title = chalk.bold.green('RAINBOW KEY GENERATOR');
 const boxenOptions = {
   padding: { top: 1, right: 16, bottom: 1, left: 16 },
   margin: 0,
@@ -33,20 +32,39 @@ console.log('Hello, this is a rainbow table key generator\n');
 
 // Funtions
 const tableGraphGenerator = (tableRowSize, tableColumnSize) => {
-  let head = [chalk.green.bold('/')];
-  let filler = [];
-  for(let column = 0; column < tableColumnSize; column++) {
-    head.push(chalk.green.bold(alphabet[column]));
-    filler.push(' ');
+  let head = [chalk.yellow.bold('/')];
+  for (let column = 0; column <= 2; column++) {
+    switch (column) {
+      case 0:
+        head.push(chalk.green.bold(alphabet[column]));
+        break;
+      case 1:
+        head.push(chalk.white.bold('►'));
+        break;
+      case 2:
+        head.push(chalk.green.bold(alphabet[tableColumnSize]));
+        break;
+      default:
+        break;
+    }
   }
-  const table = new Table({
-    head: head,
-  });
-  for(let row = 0; row < tableRowSize; row++) {
-    let rowValue = Array(filler.length + 1).fill(' ');
-    rowValue[0] = chalk.green.bold(row + 1);
-    
-    table.push(rowValue)
+
+  const table = new Table({head});
+
+  for (let row = 0; row <= 2; row++) {
+    switch (row) {
+      case 0:
+        table.push([chalk.green.bold(1), ' ', ' ', ' '])
+        break;
+      case 1:
+        table.push([chalk.white.bold('▼'), ' ', ' ', ' '])
+        break;
+      case 2:
+        table.push([chalk.green.bold(tableRowSize), ' ', ' ', ' '])
+        break;
+      default:
+        break;
+    }
   }
   return table.toString();
 }
@@ -71,19 +89,25 @@ const readLineInterface = readline.createInterface({
   output: process.stdout
 });
 
-const load = loading("Generating your key")
+const load = loading('Generating your key')
 
 readLineInterface.question("How many number's row ? ", function (tableRowSize) {
+  // if(typeof tableRowSize === 'string') {
+  //   readLineInterface.close();
+  // }
   readLineInterface.question("How many alphabetical's column ( < 26 )? ", function (tableColumnSize) {
-    if(tableColumnSize > 26) {
+    if (tableColumnSize > 26) {
       readLineInterface.close();
     }
-    readLineInterface.question("How many cells for your key ? ", function (passwordLength) {
+    readLineInterface.question('How many cell for your key ? ', function (passwordLength) {
+      // if(typeof passwordLength === 'string') {
+      //   readLineInterface.close();
+      // }
       // Graph table example
       console.log(`\nYour table should look like this: `);
       console.log(tableGraphGenerator(tableRowSize, tableColumnSize));
       // Micro loading
-      load.frame(["◰", "◳", "◲", "◱"]);
+      load.frame(['◰', '◳', '◲', '◱']);
       load.start();
       setTimeout(function () {
         load.stop()
@@ -105,6 +129,6 @@ readLineInterface.question("How many number's row ? ", function (tableRowSize) {
   });
 });
 
-readLineInterface.on("close", function () {
+readLineInterface.on('close', function () {
   process.exit(0);
 });
