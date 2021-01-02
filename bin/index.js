@@ -84,17 +84,11 @@ const readLineInterface = readline.createInterface({
 const load = loading('Generating your key')
 
 readLineInterface.question("How many number's row ? ", function (tableRowSize) {
-  // if(typeof tableRowSize === 'string') {
-  //   readLineInterface.close();
-  // }
   readLineInterface.question("How many alphabetical's column ( < 26 )? ", function (tableColumnSize) {
     if (tableColumnSize > 26) {
       readLineInterface.close();
     }
     readLineInterface.question('How many cell for your key ? ', function (passwordLength) {
-      // if(typeof passwordLength === 'string') {
-      //   readLineInterface.close();
-      // }
       // Graph table example
       console.log(`\nYour table should look like this: `);
       console.log(tableGraphGenerator(tableRowSize, tableColumnSize));
@@ -104,6 +98,7 @@ readLineInterface.question("How many number's row ? ", function (tableRowSize) {
       setTimeout(function () {
         load.stop()
         console.log('\nHere is your key:\n')
+        
         // Key
         const key = chalk.white.bold(keyGenerator(tableRowSize, tableColumnSize, passwordLength));
 
