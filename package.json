@@ -1,13 +1,13 @@
 {
-  "name": "y",
+  "name": "Rainbow Key Generator",
   "version": "1.0.0",
   "description": "",
   "main": "bin/index.js",
   "scripts": {
     "rkg": "node ./bin/index"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Benjamin Jaud",
+  "license": "MIT",
   "bin": {
     "hello": "./bin/index.js"
   },
