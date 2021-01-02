@@ -98,7 +98,7 @@ readLineInterface.question("How many number's row ? ", function (tableRowSize) {
       setTimeout(function () {
         load.stop()
         console.log('\nHere is your key:\n')
-        
+
         // Key
         const key = chalk.white.bold(keyGenerator(tableRowSize, tableColumnSize, passwordLength));
 
@@ -110,7 +110,7 @@ readLineInterface.question("How many number's row ? ", function (tableRowSize) {
         const keyBox = boxen(key, box);
         console.log(keyBox);
         readLineInterface.close();
-      }, 3000)
+      }, 1000)
 
     });
   });
