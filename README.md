@@ -1,4 +1,4 @@
-# RainbowKeyGenerator
+![alt text](./assets/rkg_title.png "Rainbow Key Generator")
 
 ## What is it about?
 Rainbow Key Generator is a CLI app that can be used to generate password key of type : `A1 B2 C3 D4 ...`
