@@ -4,7 +4,7 @@
 Rainbow Key Generator is a CLI app that can be used to generate password key of type : `A1 B2 C3 D4 ...`
 
 ## How to run?
-Simply install and `npm run rkg` or `yarn run rkg` in your terminal.
+Simply `npm install` or `yarn install` and `npm run rkg` or `yarn run rkg` in your terminal.
 Then answer the 3 questions and RKG will generate for you a random key.
 
 ## Dependencies

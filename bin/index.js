@@ -6,15 +6,7 @@ const boxen = require('boxen');
 const loading = require('loading-cli');
 const Table = require('cli-table');
 
-const alphabet = [
-  'A', 'B', 'C', 'D',
-  'E', 'F', 'G', 'H',
-  'I', 'J', 'K', 'L',
-  'M', 'N', 'O', 'P',
-  'Q', 'R', 'S', 'T',
-  'U', 'V', 'W', 'X',
-  'Y', 'Z'
-];
+const alphabet = Array.apply(undefined, Array(26)).map(function(x,y) { return String.fromCharCode(y + 65); });
 
 // Title
 const title = chalk.bold.green('RAINBOW KEY GENERATOR');

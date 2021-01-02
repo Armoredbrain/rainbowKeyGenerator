@@ -1,5 +1,5 @@
 {
-  "name": "Rainbow Key Generator",
+  "name": "rkg",
   "version": "1.0.0",
   "description": "",
   "main": "bin/index.js",
@@ -9,7 +9,7 @@
   "author": "Benjamin Jaud",
   "license": "MIT",
   "bin": {
-    "hello": "./bin/index.js"
+    "rkg": "./bin/index.js"
   },
   "dependencies": {
     "boxen": "^5.0.0",
