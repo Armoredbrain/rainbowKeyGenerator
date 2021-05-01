@@ -2,6 +2,7 @@
 
 const chalk = require('chalk');
 const Table = require('cli-table');
+
 const alphabet = Array.apply(undefined, Array(26)).map(function(x, y) {
   return String.fromCharCode(y + 65);
 });
@@ -57,7 +58,6 @@ const keyGenerator = (tableRowSize, tableColumnSize, passwordLength) => {
     rainbowKey.push(item)
   }
   return rainbowKey.join(' | ');
-
 }
 
 module.exports = {
